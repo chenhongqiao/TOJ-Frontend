@@ -79,7 +79,7 @@ export const m = {
   Special_Judge_Code: 'Special Judge Code',
   SPJ_language: 'SPJ language',
   Compile: 'Compile',
-  TestCase: 'TestCase',
+  TestCase: 'Test Case',
   IOMode: 'IO Mode',
   InputFileName: 'Input File Name',
   OutputFileName: 'Output File Name',
