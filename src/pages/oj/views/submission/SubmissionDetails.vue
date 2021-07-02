@@ -186,8 +186,8 @@
       }
       pre {
         white-space: pre-wrap;
-        word-wrap: break-word;
-        word-break: break-all;
+        word-wrap: normal;
+        word-break: normal;
       }
     }
   }
