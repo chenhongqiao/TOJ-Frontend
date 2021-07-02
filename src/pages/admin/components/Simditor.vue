@@ -28,6 +28,8 @@
       }
     },
     mounted () {
+      Simditor.locale = 'en-US'
+
       this.editor = new Simditor({
         textarea: this.$refs.editor,
         toolbar: this.toolbar,
