@@ -1,16 +1,13 @@
 // all routes here.
 import {
   About,
-  ACMRank,
   Announcements,
   ApplyResetPassword,
   FAQ,
   Home,
   Logout,
   NotFound,
-  OIRank,
   Problem,
-  ProblemList,
   ResetPassword,
   SubmissionDetails,
   SubmissionList,
@@ -44,24 +41,6 @@ export default [
     path: '/reset-password/:token',
     meta: {title: 'Reset Password'},
     component: ResetPassword
-  },
-  {
-    name: 'problem-list',
-    path: '/problem',
-    meta: {title: 'Problem List'},
-    component: ProblemList
-  },
-  {
-    name: 'problem-details',
-    path: '/problem/:problemID',
-    meta: {title: 'Problem Details'},
-    component: Problem
-  },
-  {
-    name: 'submission-list',
-    path: '/status',
-    meta: {title: 'Submission List'},
-    component: SubmissionList
   },
   {
     name: 'submission-details',
@@ -112,18 +91,6 @@ export default [
         component: Contest.ACMContestHelper
       }
     ]
-  },
-  {
-    name: 'acm-rank',
-    path: '/acm-rank',
-    meta: {title: 'ACM Rankings'},
-    component: ACMRank
-  },
-  {
-    name: 'oi-rank',
-    path: '/oi-rank',
-    meta: {title: 'OI Rankings'},
-    component: OIRank
   },
   {
     name: 'user-home',

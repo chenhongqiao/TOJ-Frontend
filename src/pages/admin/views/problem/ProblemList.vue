@@ -71,8 +71,6 @@
           width="250">
           <div slot-scope="scope">
             <icon-btn name="Edit" icon="edit" @click.native="goEdit(scope.row.id)"></icon-btn>
-            <icon-btn v-if="contestId" name="Make Public" icon="clone"
-                      @click.native="makeContestProblemPublic(scope.row.id)"></icon-btn>
             <icon-btn icon="download" name="Download TestCase"
                       @click.native="downloadTestCase(scope.row.id)"></icon-btn>
             <icon-btn icon="trash" name="Delete Problem"
@@ -83,10 +81,6 @@
       <div class="panel-options">
         <el-button type="primary" size="small"
                    @click="goCreateProblem" icon="el-icon-plus">Create
-        </el-button>
-        <el-button v-if="contestId" type="primary"
-                   size="small" icon="el-icon-plus"
-                   @click="addProblemDialogVisible = true">Add From Public Problem
         </el-button>
         <el-pagination
           class="page"
@@ -110,26 +104,15 @@
         <save @click.native="updateProblem(currentRow)"></save>
       </span>
     </el-dialog>
-    <el-dialog title="Add Contest Problem"
-               v-if="contestId"
-               width="80%"
-               :visible.sync="addProblemDialogVisible"
-               @close-on-click-modal="false">
-      <add-problem-component :contestID="contestId" @on-change="getProblemList"></add-problem-component>
-    </el-dialog>
   </div>
 </template>
 
 <script>
   import api from '../../api.js'
   import utils from '@/utils/utils'
-  import AddProblemComponent from './AddPublicProblem.vue'
 
   export default {
     name: 'ProblemList',
-    components: {
-      AddProblemComponent
-    },
     data () {
       return {
         pageSize: 10,
@@ -143,9 +126,7 @@
         // for make public use
         currentProblemID: '',
         currentRow: {},
-        InlineEditDialogVisible: false,
-        makePublicDialogVisible: false,
-        addProblemDialogVisible: false
+        InlineEditDialogVisible: false
       }
     },
     mounted () {

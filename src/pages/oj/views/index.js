@@ -1,4 +1,3 @@
-import ProblemList from './problem/ProblemList.vue'
 import Logout from './user/Logout.vue'
 import UserHome from './user/UserHome.vue'
 import About from './help/About.vue'
@@ -11,9 +10,6 @@ import Announcements from './general/Announcements.vue'
 const SubmissionList = () => import(/* webpackChunkName: "submission" */ '@oj/views/submission/SubmissionList.vue')
 const SubmissionDetails = () => import(/* webpackChunkName: "submission" */ '@oj/views/submission/SubmissionDetails.vue')
 
-const ACMRank = () => import(/* webpackChunkName: "userRank" */ '@oj/views/rank/ACMRank.vue')
-const OIRank = () => import(/* webpackChunkName: "userRank" */ '@oj/views/rank/OIRank.vue')
-
 const ApplyResetPassword = () => import(/* webpackChunkName: "password" */ '@oj/views/user/ApplyResetPassword.vue')
 const ResetPassword = () => import(/* webpackChunkName: "password" */ '@oj/views/user/ResetPassword.vue')
 
@@ -22,8 +18,7 @@ const Problem = () => import(/* webpackChunkName: "Problem" */ '@oj/views/proble
 export {
   Home, NotFound, Announcements,
   Logout, UserHome, About, FAQ,
-  ProblemList, Problem,
-  ACMRank, OIRank,
+  Problem,
   SubmissionList, SubmissionDetails,
   ApplyResetPassword, ResetPassword
 }
