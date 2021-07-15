@@ -30,18 +30,28 @@
             title: '#',
             key: '_id',
             sortType: 'asc',
-            width: 350
+            width: 150
           },
           {
             title: this.$i18n.t('m.Title'),
             key: 'title'
+          },
+          {
+            title: this.$i18n.t('m.Total'),
+            key: 'submission_number'
+          },
+          {
+            title: this.$i18n.t('m.AC_Rate'),
+            render: (h, params) => {
+              return h('span', this.getACRate(params.row.accepted_number, params.row.submission_number))
+            }
           }
         ],
         OITableColumns: [
           {
             title: '#',
             key: '_id',
-            width: 350
+            width: 150
           },
           {
             title: this.$i18n.t('m.Title'),

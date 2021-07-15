@@ -19,7 +19,14 @@
               </Dropdown>
             </li>
 
-            <li v-show="isAdminRole">
+
+            <li>
+              <i-switch size="large" v-model="formFilter.myself" @on-change="handleQueryChange">
+                <span slot="open">{{$t('m.Mine')}}</span>
+                <span slot="close">{{$t('m.All')}}</span>
+              </i-switch>
+            </li>
+            <li>
               <Input v-model="formFilter.username" :placeholder="$t('m.Search_Author')" @on-enter="handleQueryChange"/>
             </li>
 
@@ -51,7 +58,7 @@
     data () {
       return {
         formFilter: {
-          myself: true,
+          myself: false,
           result: '',
           username: ''
         },
@@ -187,7 +194,7 @@
         this.contestID = this.$route.params.contestID
         let query = this.$route.query
         this.problemID = query.problemID
-        this.formFilter.myself = !this.isAdminRole
+        this.formFilter.myself = query.myself === '1'
         this.formFilter.result = query.result || ''
         this.formFilter.username = query.username || ''
         this.page = parseInt(query.page) || 1
@@ -287,7 +294,7 @@
       }
     },
     computed: {
-      ...mapGetters(['isAuthenticated', 'user', 'isAdminRole']),
+      ...mapGetters(['isAuthenticated', 'user']),
       title () {
         if (!this.contestID) {
           return this.$i18n.t('m.Status')
